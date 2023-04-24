@@ -6,7 +6,10 @@
 
 24.4. - nová vydlička
 
-15.5. - ...
+15.5. - Předprezentační briefing
 
+16.5. - nestíhame, třeba kódit!
+
+17.5. - Prezentační den - stavová komponenta
 17.6. - ...
 Coming soon...
