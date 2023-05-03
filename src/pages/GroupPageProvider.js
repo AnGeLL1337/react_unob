@@ -22,7 +22,7 @@ export const GroupPageProvider = ({id}) => {
     //vyber skupiny ze store, ktera ma byt zobrazena
     const group = groups[id] //|| {id: id}
 
-    //console.log(group)
+    //console.log(group)npm install @reduxjs/toolkit
     console.log('prekresleni')
     if (group?.memberships) {
         console.log(group.memberships)

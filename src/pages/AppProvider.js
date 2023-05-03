@@ -2,7 +2,9 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 
 import { bindGroupActions } from 'reducers/_main';
-import { GroupReducer } from 'reducers/groupreducers'; 
+import {bindLessonActions} from "reducers/_main";
+import { GroupReducer } from 'reducers/groupreducers';
+import { LessonReducer } from 'reducers/lessonreducers';
 
 /**
  * Toto je hlavni store pro celou aplikaci. Zde zacleneno pro demonstraci. 
@@ -10,10 +12,12 @@ import { GroupReducer } from 'reducers/groupreducers';
 export const store = configureStore(
     { 
         reducer: {
-            groups: GroupReducer
+            groups: GroupReducer,
+            lessons: LessonReducer
         }, 
         preloadedState: {
-            groups: {}
+            groups: {},
+            lessons: {}
         }
 })
 
@@ -26,7 +30,8 @@ const dispatch = store.dispatch
  * Tim se zabezpeci jejich "purity" (nejsou zavisle na globalnich parametrech)
  */
 export const actions = {
-    ...bindGroupActions(dispatch)
+    ...bindGroupActions(dispatch),
+    ...bindLessonActions(dispatch)
 }
 
 /**
