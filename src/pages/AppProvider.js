@@ -18,7 +18,8 @@ export const store = configureStore(
         preloadedState: {
             groups: {},
             lessons: {}
-        }
+        },
+        devTools: true
 })
 
 const dispatch = store.dispatch

@@ -31,8 +31,9 @@ export const bindGroupActions = (dispatch) => {
  */
 export const bindLessonActions = (dispatch) => {
     return {
-        onLessonUpdate: (g) => dispatch(LessonActions.lesson_update(g)),
-        onLessonAdd: (g) => dispatch(LessonActions.lesson_add(g)),
+
+        onLessonRemove: ({user, lesson}) => dispatch(LessonActions.lesson_Remove({user, lesson})),
+        onLessonUpdate: (payload) => dispatch(LessonActions.lesson_Update(payload)),
 
         lessonFetch: (id) => dispatch(LessonFetch(id)),
         lessonFakeFetch: (id) => dispatch(LessonFakeFetch(id)),

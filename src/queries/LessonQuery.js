@@ -10,7 +10,7 @@ export const LessonQueryJSON = (id) => ({
     "variables": {"id": id}
 })
 
-export const LessonQueryJSONPage = () => ({
+export const LessonQueryPageJSON = () => ({
     "query":
         `query{
             plannedLessonPage{
@@ -24,7 +24,11 @@ export const LessonQuery = (id) =>
         body: JSON.stringify(LessonQueryJSON(id)),
     })
 
+
+
+
+
 export const LessonQueryPage = () =>
     authorizedFetch('/gql', {
-        body: JSON.stringify(LessonQueryJSONPage()),
+        body: JSON.stringify(LessonQueryPageJSON()),
     })

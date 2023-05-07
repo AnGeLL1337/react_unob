@@ -6,6 +6,10 @@ import {fakeQueryLesson} from "../queries/fakequerylesson";
 /**
  * Ask for the item on server and adds it or update it in the store to the heap
  * @param {*} id
+ * @param query
+ * @param resultselector
+ * @param dispatch
+ * @param getState
  * @returns promise
  */
 
@@ -15,6 +19,7 @@ export const LessonFetchHelper = (id, query, resultselector, dispatch, getState)
         console.log(JSON.stringify(p))
         return p
     }
+    console.log('LessonFetchHelper' + id)
     const p = query(id)
         .then(
             response => response.json(),
