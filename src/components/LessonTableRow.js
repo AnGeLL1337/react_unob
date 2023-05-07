@@ -1,5 +1,5 @@
 import {TextInput} from "./TextInput";
-import {DeleteButton} from "./DeleteButton";
+import SelectBasicExample from "./LessonTypeSelectBox";
 
 /**
  * One lesson as a table row
@@ -9,8 +9,6 @@ import {DeleteButton} from "./DeleteButton";
 export  const LessonTableRow = ({lesson, actions}) => {
 
     const onClick = () => {
-        const payload = {lesson: lesson}
-        actions.onLessonRemove(payload)
         console.log('jdu smazat hodinu')
     }
 
@@ -19,9 +17,7 @@ export  const LessonTableRow = ({lesson, actions}) => {
             <td>{lesson.id}</td>
             <td>{lesson.name}</td>
             <td>{lesson.lastchange}</td>
-            <td>
-                <DeleteButton onClick={onClick}>Zmaž</DeleteButton>
-            </td>
+            <td><SelectBasicExample></SelectBasicExample></td>
         </tr>
     )
 }
