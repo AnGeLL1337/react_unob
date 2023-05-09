@@ -1,9 +1,10 @@
 import  {LessonTableRow} from "./LessonTableRow";
 
 /**
- * Table of lessons
- * @param {*} param0
- * @returns
+ * Komponent LessonTable zobrazuje zoznam všetkých lessons v tabuľkovej forme.
+ *
+ * @param {Object[]} lessons - Pole objektov reprezentujúcich jednotlivé lessons.
+ * @param {Object} actions - Objekt obsahujúci akcie, ktoré môžu byť vykonané na lessons.
  */
 
 export const LessonTable = ({lessons, actions}) => {
@@ -15,6 +16,10 @@ export const LessonTable = ({lessons, actions}) => {
                     <th>Id</th>
                     <th>Název</th>
                     <th>Poslední změna</th>
+                    <th>Typ lekce</th>
+                    <th>Vyber učitela</th>
+                    <th>Vyber učebny</th>
+                    <th>Zmazať</th>
                 </tr>
             </thead>
             <tbody>

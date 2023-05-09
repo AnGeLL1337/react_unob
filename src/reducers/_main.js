@@ -6,6 +6,7 @@ import { LessonFetch, LessonFakeFetch } from "./LessonAsyncActions"
 /**
  * vytvori actions, ktere pri volani uz vse radne provedou
  * jsou zahrnuty i "asynchronni" akce
+ *
  * @param {*} dispatch 
  * @returns 
  */
@@ -26,14 +27,17 @@ export const bindGroupActions = (dispatch) => {
 /**
  * vytvori actions, ktere pri volani uz vse radne provedou
  * jsou zahrnuty i "asynchronni" akce
- * @param {*} dispatch
- * @returns
+ *
+ * @param {function} dispatch - funkcia z reduxu, ktora prevedie akciu
+ * @returns {object} - objekt s akciami, ktore sa maju vykonat
  */
 export const bindLessonActions = (dispatch) => {
     return {
 
-        onLessonRemove: ({user, lesson}) => dispatch(LessonActions.lesson_Remove({user, lesson})),
+        onLessonRemove: (payload) => dispatch(LessonActions.lesson_Remove(payload)),
         onLessonUpdate: (payload) => dispatch(LessonActions.lesson_Update(payload)),
+
+        onLessonUserSelect: (payload) => dispatch(LessonActions.lesson_user_select(payload)),
 
         lessonFetch: (id) => dispatch(LessonFetch(id)),
         lessonFakeFetch: (id) => dispatch(LessonFakeFetch(id)),

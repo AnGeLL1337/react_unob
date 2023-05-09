@@ -3,9 +3,11 @@ import Card from "react-bootstrap/Card";
 import {LessonCard} from "./LessonCard";
 
 /**
- * Renders a card describing a lesson in detailed form.
- * @param {*} param0
- * @returns
+ * Komponent LessonLarge predstavuje kartu so zobrazením detailov o lesson.
+ *
+ * @param {Object} lesson - Objekt s informáciami o lesson.
+ * @param {Object} actions - Objekt so zoznamom funkcií, ktoré možno na lesson vykonať.
+ * @returns {JSX.Element} Karta so zobrazením detailov o lesson.
  */
 
 export const LessonLarge = ({lesson, actions}) => {
@@ -19,9 +21,9 @@ export const LessonLarge = ({lesson, actions}) => {
             <Card.Body>
                 <LessonCard lessons={lesson} actions={actions} />
             </Card.Body>
-            <Card.Body>
+ {/*           <Card.Body>
                 {JSON.stringify(lesson)}
-            </Card.Body>
+            </Card.Body>*/}
         </Card>
     )
 }

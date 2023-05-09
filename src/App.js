@@ -1,10 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'App.css';
 import {useState} from "react";
-
-import logo from './logo.svg';
-import {GroupPage} from 'pages/GroupPage';
-import {GroupPageProvider} from 'pages/GroupPageProvider';
 import {AppProvider} from 'pages/AppProvider';
 import {LessonPageProvider} from 'pages/LessonPageProvider';
 import SearchBar from "./components/SearchButton";
@@ -14,10 +10,12 @@ function App() {
     const [searchTerm, setSearchTerm] = useState('');
     return (
         <div className="App">
-            <SearchBar handleSearch={setSearchTerm}/>
+
 
             <AppProvider>
+                <SearchBar handleSearch={setSearchTerm}/>
                 <LessonPageProvider id={searchTerm}/>
+
             </AppProvider>
 
         </div>
