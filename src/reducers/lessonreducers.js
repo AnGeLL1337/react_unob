@@ -60,7 +60,7 @@ const LessonUserSelect = (state, action) => {
  * @param {Object} action Akcia, ktorá má byť vykonaná.
  * @param {Object} action.payload Payload akcie, obsahujúci lesson a užívatela.
  * @param {Object} action.payload.lesson Lesson, ktorá sa má aktualizovať.
- * @param {string} action.payload.user užívatel, ktorý si vybral lesson.
+ * @param {Object} action.payload.user užívatel, ktorý si vybral lesson.
  * @returns {Object} Nový stav s aktualizovanou lesson a zvoleným užívateľom.
  */
 
@@ -70,6 +70,44 @@ const updateLessonWithUser = (state, action) => {
     const newState = LessonUserSelect(state, { payload: { lesson, user } });
     return { ...state, ...newState };
 };
+
+/**
+ * Aktualizuje stav store s výberom učebny pre danú lesson..
+ * @param {Object} state - Aktuálny stav lekcií.
+ * @param {Object} action - Akcia, ktorá má byť vykonaná.
+ * @param {Object} action.payload - Payload akcie, obsahujúci lesson a učebnu.
+ * @param {Object} action.payload.lesson - Lesson, ktorá sa má aktualizovať.
+ * @param {Object} action.payload.facility - Učebna, ktorá sa má priradiť k lesson.
+ * @returns {Object} Nový stav s aktualizovanou lesson a zvolenou učebnou.
+ */
+const LessonFecilitySelect = (state, action) => {
+    const {lesson, facility} = action.payload
+    console.log("LessonFecilitySelect", lesson, facility);
+    return {
+        ...state,
+        [lesson.id]: {
+            ...state[lesson.id],
+            facility
+        }
+    }
+}
+
+/**
+ * Funkcia, ktorá aktualizuje lesson so zvolenou učebnou.
+ * @param state - Aktuálny stav lekcií.
+ * @param action - Akcia, ktorá má byť vykonaná.
+ * @param action.payload - Payload akcie, obsahujúci lesson a učebnu.
+ * @param action.payload.lesson - Lesson, ktorá sa má aktualizovať.
+ * @param action.payload.facility - Učebna, ktorá sa má priradiť k lesson.
+ * @returns {*}
+ */
+
+const updateLessonWithFacility = (state, action) => {
+    const { lesson, facility } = action.payload;
+    console.log("updateLessonWithFacility", lesson, facility);
+    const newState = LessonFecilitySelect(state, { payload: { lesson, facility } });
+    return { ...state, ...newState };
+}
 
 /**
  * kompletne definovany stavovy automat pro lekce
@@ -89,7 +127,8 @@ export const LessonSlice = createSlice({
         lesson_Update: LessonUpdate,
         lesson_Search: SearchButton,
 
-        lesson_user_select: updateLessonWithUser
+        lesson_user_select: updateLessonWithUser,
+        lesson_facility_select: updateLessonWithFacility
     }
 })
 

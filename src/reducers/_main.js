@@ -38,6 +38,7 @@ export const bindLessonActions = (dispatch) => {
         onLessonUpdate: (payload) => dispatch(LessonActions.lesson_Update(payload)),
 
         onLessonUserSelect: (payload) => dispatch(LessonActions.lesson_user_select(payload)),
+        onLessonFacilitySelect: (payload) => dispatch(LessonActions.lesson_facility_select(payload)),
 
         lessonFetch: (id) => dispatch(LessonFetch(id)),
         lessonFakeFetch: (id) => dispatch(LessonFakeFetch(id)),

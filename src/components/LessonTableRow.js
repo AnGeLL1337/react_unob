@@ -1,6 +1,7 @@
 import SelectBasicExample from "./LessonTypeSelectBox";
 import {DeleteButton} from "./DeleteButton";
 import {LessonUserSelectBox} from "./LessonUserSelectBox";
+import {LessonFacilitySelectBox} from "./LessonFecilitySelectBox";
 
 
 /**
@@ -27,7 +28,7 @@ export  const LessonTableRow = ({lesson, actions}) => {
             <td>{lesson.lastchange}</td>
             <td><SelectBasicExample></SelectBasicExample></td>
             <td><LessonUserSelectBox lesson={lesson}> </LessonUserSelectBox></td>
-            <td><SelectBasicExample></SelectBasicExample></td>
+            <td><LessonFacilitySelectBox lesson={ lesson }> </LessonFacilitySelectBox></td>
             <td>
                 <DeleteButton onClick={onClick}>Zmaž</DeleteButton>
             </td>
