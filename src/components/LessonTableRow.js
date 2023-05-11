@@ -1,7 +1,7 @@
 import SelectBasicExample from "./LessonTypeSelectBox";
 import {DeleteButton} from "./DeleteButton";
 import {LessonUserSelectBox} from "./LessonUserSelectBox";
-import {LessonFacilitySelectBox} from "./LessonFecilitySelectBox";
+import {LessonFacilitySelectBox} from "./LessonFacilitySelectBox";
 
 
 /**

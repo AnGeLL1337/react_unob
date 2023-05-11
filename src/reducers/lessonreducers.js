@@ -80,7 +80,7 @@ const updateLessonWithUser = (state, action) => {
  * @param {Object} action.payload.facility - Učebna, ktorá sa má priradiť k lesson.
  * @returns {Object} Nový stav s aktualizovanou lesson a zvolenou učebnou.
  */
-const LessonFecilitySelect = (state, action) => {
+const LessonFacilitySelect = (state, action) => {
     const {lesson, facility} = action.payload
     console.log("LessonFecilitySelect", lesson, facility);
     return {
@@ -105,7 +105,7 @@ const LessonFecilitySelect = (state, action) => {
 const updateLessonWithFacility = (state, action) => {
     const { lesson, facility } = action.payload;
     console.log("updateLessonWithFacility", lesson, facility);
-    const newState = LessonFecilitySelect(state, { payload: { lesson, facility } });
+    const newState = LessonFacilitySelect(state, { payload: { lesson, facility } });
     return { ...state, ...newState };
 }
 
