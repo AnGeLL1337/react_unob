@@ -1,7 +1,7 @@
-import SelectBasicExample from "./LessonTypeSelectBox";
-import {DeleteButton} from "./DeleteButton";
-import {LessonUserSelectBox} from "./LessonUserSelectBox";
-import {LessonFacilitySelectBox} from "./LessonFacilitySelectBox";
+import {DeleteButton} from "components/DeleteButton";
+import {LessonUserSelectBox} from "components/LessonUserSelectBox";
+import {LessonFacilitySelectBox} from "components/LessonFacilitySelectBox";
+import {LessonTypeSelectBox} from "components/LessonTypeSelectBox";
 
 
 /**
@@ -26,7 +26,7 @@ export  const LessonTableRow = ({lesson, actions}) => {
             <td>{lesson.id}</td>
             <td>{lesson.name}</td>
             <td>{lesson.lastchange}</td>
-            <td><SelectBasicExample></SelectBasicExample></td>
+            <td><LessonTypeSelectBox lesson={lesson}></LessonTypeSelectBox></td>
             <td><LessonUserSelectBox lesson={lesson}> </LessonUserSelectBox></td>
             <td><LessonFacilitySelectBox lesson={ lesson }> </LessonFacilitySelectBox></td>
             <td>

@@ -53,6 +53,8 @@ const LessonUserSelect = (state, action) => {
     }
 }
 
+
+
 /**
  * Funkcia, ktorá aktualizuje lesson so zvoleným užívateľom.
  *
@@ -71,6 +73,25 @@ const updateLessonWithUser = (state, action) => {
     return { ...state, ...newState };
 };
 
+const LessonTypeSelect = (state, action) => {
+    const {lesson, type} = action.payload
+    console.log("LessonTypeSelect", lesson, type);
+    return {
+        ...state,
+        [lesson.id]: {
+            ...state[lesson.id],
+            type
+        }
+    }
+};
+
+const updateLessonWithType = (state, action) => {
+    const { lesson, type } = action.payload;
+    console.log("updateLessonWithType", lesson, type);
+    const newState = LessonTypeSelect(state, { payload: { lesson, type } });
+    return { ...state, ...newState };
+}
+
 /**
  * Aktualizuje stav store s výberom učebny pre danú lesson..
  * @param {Object} state - Aktuálny stav lekcií.
@@ -82,7 +103,7 @@ const updateLessonWithUser = (state, action) => {
  */
 const LessonFacilitySelect = (state, action) => {
     const {lesson, facility} = action.payload
-    console.log("LessonFecilitySelect", lesson, facility);
+    console.log("LessonFacilitySelect", lesson, facility);
     return {
         ...state,
         [lesson.id]: {
@@ -128,6 +149,7 @@ export const LessonSlice = createSlice({
         lesson_Search: SearchButton,
 
         lesson_user_select: updateLessonWithUser,
+        lesson_type_select: updateLessonWithType,
         lesson_facility_select: updateLessonWithFacility
     }
 })
